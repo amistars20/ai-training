@@ -22,7 +22,8 @@ Use `train.sh` only for small tests. Full dataset takes ~17h on CPU.
 - **`chat.py`** — Python inference (no GGUF): `source .venv/bin/activate && python chat.py working/merged-model "Name"`
 - **`parse_chat.py`** — standalone parser: `python parse_chat.py <_chat.txt> <you> <friend>`
 - **`prepare_data.py`** — pairs → Qwen-format JSONL: `python prepare_data.py <pairs.json> --model qwen --context 2`
-- **`colab_train.ipynb`** — Colab notebook for GPU training
+- **`colab_train.ipynb`** — Colab notebook for GPU training (repo: `amistars20/ai-training`)
+- **Colab URL**: `https://colab.research.google.com/github/amistars20/ai-training/blob/master/colab_train.ipynb`
 
 ## Setup
 
@@ -32,7 +33,7 @@ Use `train.sh` only for small tests. Full dataset takes ~17h on CPU.
 
 ## Training
 
-- **Colab (GPU)**: 3 epochs, batch_size=4, grad_accum=2, bf16, packing enabled. ~30-45 min.
+- **Colab (GPU)**: 1-3 epochs, batch_size=8, grad_accum=1, bf16, `packing=False`, `response_template` for loss masking. ~2.5-3h/epoch.
 - **Local (CPU)**: 3 epochs, batch_size=2, grad_accum=4, fp32. 8-36h depending on model size.
 - **Context**: `--context 2` includes 2 previous turns as conversation context
 - Model sizes: 0.5b (recommended), 1b, 1.5b, 3b
