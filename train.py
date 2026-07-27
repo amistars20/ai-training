@@ -4,7 +4,7 @@ from pathlib import Path
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
-from trl import SFTConfig, SFTTrainer, DataCollatorForCompletionOnlyLM
+from trl import SFTConfig, SFTTrainer
 from peft import LoraConfig, get_peft_model, PeftModel
 from datasets import load_dataset
 
@@ -124,16 +124,12 @@ def main():
             dataloader_pin_memory=False,
         )
 
-    response_template = "<|im_start|>assistant"
-    collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=tokenizer)
-
     trainer = SFTTrainer(
         model=model,
         args=training_args,
         train_dataset=dataset["train"],
         eval_dataset=dataset["validation"],
         processing_class=tokenizer,
-        data_collator=collator,
     )
 
     if resume:
