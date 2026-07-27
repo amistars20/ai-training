@@ -79,9 +79,7 @@ def main():
         training_args = SFTConfig(
             output_dir=ckpt_dir,
             num_train_epochs=int(os.environ.get("NUM_EPOCHS", 1)),
-            per_device_train_batch_size=8,
-            per_device_eval_batch_size=8,
-            gradient_accumulation_steps=1,
+            per_device_train_batch_size=4,\n            per_device_eval_batch_size=4,\n            gradient_accumulation_steps=2,
             learning_rate=2e-4,
             warmup_steps=50,
             logging_steps=10,
