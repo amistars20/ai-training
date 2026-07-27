@@ -130,7 +130,6 @@ def main():
         train_dataset=dataset["train"],
         eval_dataset=dataset["validation"],
         processing_class=tokenizer,
-        response_template="<|im_start|>assistant",
     )
 
     if resume:
