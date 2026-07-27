@@ -1,0 +1,11 @@
+working/
+chats/
+*.pairs.json
+train.jsonl
+valid.jsonl
+_chat.txt
+*.gguf
+.venv/
+*.zip
+__pycache__/
+.DS_Store
