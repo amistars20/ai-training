@@ -100,6 +100,7 @@ def main():
             packing=False,
             max_length=1024,
             dataset_text_field="text",
+            response_template="<|im_start|>assistant",
         )
     else:
         training_args = TrainingArguments(
