@@ -9,3 +9,4 @@ _chat.txt
 *.zip
 __pycache__/
 .DS_Store
+chat.json
